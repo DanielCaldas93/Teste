@@ -16,7 +16,7 @@
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :descricao %><br>
+    <%= f.label :descricao, "Descrição"%><br>
     <%= f.text_field :descricao %>
   </div>
   <div class="field">
@@ -24,13 +24,17 @@
     <%= f.text_field :quantidade %>
   </div>
   <div class="field">
-    <%= f.label :valorUnit %><br>
-    <%= f.text_field :valorUnit %>
+    <%= f.label :valorUnit, "Valor da unidade" %>
+    <br>R$<%= f.text_field :valorUnit %></br>
   </div>
-  <div class="field">
-    <%= f.label :imagem %><br>
-    <%= f.text_field :imagem %>
-  </div>
+  
+<div>
+<%= f.label :foto %>
+<%= image_tag @produto.foto_url, class: 'foto' if @produto.foto? %>
+<%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+<br/>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

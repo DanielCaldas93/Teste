@@ -16,14 +16,14 @@
 </p>
 
 <p>
-  <strong>Valorunit:</strong>
+  <strong>Valor unitário:</strong>
   <%= @produto.valorUnit %>
 </p>
 
-<p>
-  <strong>Imagem:</strong>
-  <%= @produto.imagem %>
-</p>
+<br/>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+
+
+
+<%= link_to 'Editar', edit_produto_path(@produto), class: "glyphicon glyphicon-pencil" %> |
+<%= link_to 'Voltar', produtos_path, class: "glyphicon glyphicon-arrow-left" %>

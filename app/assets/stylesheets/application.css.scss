@@ -7,7 +7,8 @@
 @import "bootstrap";
 
 body {
-    background: image-url('linen.jpg?v=0382.14157') repeat #d1d5d8;
+   /* background: image-url('linen.jpg?v=0382.14157') repeat #d1d5d8;*/
+   background-color: #ee7528;
 }
 table {
   width: 100%;
@@ -25,11 +26,71 @@ table {
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 .logo {
-	width: 120px;
-	height: 50px;
+	width: 100px;
+	height: 30px;
 }
 
 .foto {
   width: 90px;
   height: 120px;
+}
+/* table */
+table {
+  margin: 0 0 1em;
+  background: #FFF;
+  border-collapse: collapse;
+  border-top: 1px solid #FFA500;
+  border-bottom: 2px solid #FFA500;
+}
+
+/* caption = table title/heading */
+caption {
+  text-align: left;
+  font: bold small-caps 120%/1.3 "trebuchet ms",Helvetica,Arial,Sans-Serif;
+  color: #FFA500;
+  margin: .3em 0;
+}
+
+/* reduced font size to save space */
+tr { font-size: 90%; }
+/* prevent nested tables reducing font size further */
+tr tr { font-size: 100%; }
+
+/* tinted rows */
+/* in CSS3 selectors: tbody tr:even or tbody tr:nth-child(2n) */
+tr.odd {
+  background: #F0E68C;
+}
+
+/* table cells */
+th, td {
+  font-weight: normal;
+  padding: .3em .7em;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* borders to separate body sections */
+tbody tr:first-child th,
+tbody tr:first-child td,
+tfoot tr:first-child th,
+tfoot tr:first-child td {
+  border-top: 1px solid #FFA500;
+}
+
+/* tints for column headings */
+thead {
+  background: #F5DEB3;
+  white-space: nowrap;
+}
+
+/* tints for totals */
+tfoot {
+  background: #ADA;
+}
+
+/* bold text for totals */
+tfoot th,
+tfoot td {
+  font-weight: bold;
 }

@@ -1,0 +1,43 @@
+<%= form_for(@pedido) do |f| %>
+  <% if @pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% @pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.text_field :data,  class: "datepicker"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :valorTotal, "Valor Total" %><br>
+    <%= f.text_field :valorTotal %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+    <%= f.select :cliente_id, options_for_select(Cliente.all.map{|m|[m.nome,
+    m.id]},f.object.cliente_id) %>
+  </div>
+
+
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+$('#data').inputmask("9999.9.999.9999");
+});
+</script>

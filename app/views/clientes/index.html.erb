@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Clientes</h1>
+<h1>Lista de Clientes</h1>
+
+<hr/>
+<%= render 'formbusca'%>
+<hr/>
 
 <table>
   <thead>
@@ -18,14 +22,14 @@
         <td><%= cliente.nome %></td>
         <td><%= cliente.email %></td>
         <td><%= cliente.senha %></td>
-        <td><%= link_to 'Show', cliente %></td>
-        <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Destroy', cliente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', cliente, class: "glyphicon glyphicon-eye-open" %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), class: "glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to 'Deletar', cliente, class: "glyphicon glyphicon-remove", method: :delete, data: { confirm: 'Deseja deletar?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+ <%= will_paginate @clientes, previous_label: "Anterior", next_label: "Próxima" %>
 <br>
-
-<%= link_to 'New Cliente', new_cliente_path %>
+<%= link_to 'Novo Cliente', new_cliente_path, class: "btn btn-default" %>

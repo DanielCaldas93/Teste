@@ -1,20 +1,36 @@
   
 <div id="wrapper">
-	<div id="sidebar-wrapper">
+  <div id="sidebar-wrapper">
    <ul class="sidebar-nav">
     <li class="sidebar-brand">
       <a href="#" >
        <h4>Menu</h4>
      </a>
    </li>
-   
+   <ul>
    <li style="font-size: 20px;">
      <%= link_to ' Empresa', paginas_index_path, class: "glyphicon glyphicon-home" %>  
-   </ul>
+  <br>
    <li style="font-size: 20px;">
-    <%= link_to ' Produtos', paginas_produtos_path, class: "glyphicon glyphicon-home" %>
-    </ul>
+    <%= link_to ' Produtos', produtos_path, class: "glyphicon glyphicon-glass" %>
+    
+  <br>
+   <li style="font-size: 20px;">
+     <%= link_to ' Clientes', clientes_path, class: "glyphicon glyphicon-user"%>
+    
+  <br>
+   <li style="font-size: 20px;">
+     <%= link_to ' Pedidos', pedidos_path, class: "glyphicon glyphicon-shopping-cart"%>
 
+  <br>
+     <li style="font-size: 20px;">
+      <%= link_to " Relatorio Clientes", listar_clientes_path(@cliente, :format =>'pdf'), target: '_blank', class: "glyphicon glyphicon-print" %>
+
+   <br>
+     <li style="font-size: 20px;">
+      <%= link_to " Relatorio Produtos", listar_produtos_path(@cliente, :format =>'pdf'), target: '_blank', class: "glyphicon glyphicon-print" %>    
+    
+  <br>
    <li style="font-size: 20px;">
      <%= link_to ' Localização', paginas_localizacao_path, class: "glyphicon glyphicon-map-marker"%>
     </ul>

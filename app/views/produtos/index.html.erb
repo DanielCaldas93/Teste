@@ -2,14 +2,19 @@
 
 <h1>Lista de Produtos</h1>
 
+<br>
+<hr/>
+<%= render 'formbusca' %>
+<hr/>
+<br>
+
 <table>
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Descricao</th>
+      <th>Descrição</th>
       <th>Quantidade</th>
-      <th>Valorunit</th>
-      <th>Imagem</th>
+      <th>Valor Unitário</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,15 +25,16 @@
         <td><%= produto.nome %></td>
         <td><%= produto.descricao %></td>
         <td><%= produto.quantidade %></td>
-        <td><%= produto.valorUnit %></td>
-        <td><%= produto.imagem %></td>
-        <td><%= link_to 'Mostrar', produto %></td>
-        <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
-        <td><%= link_to 'Deletar', produto, method: :delete, data: { confirm: 'Deseja deletar?' } %></td>
+        <td>R$<%= produto.valorUnit %></td>
+                <td><%= link_to 'Mostrar', produto, class: "glyphicon glyphicon-eye-open" %></td>
+        <td><%= link_to 'Editar', edit_produto_path(produto), class: "glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to 'Deletar', produto, class: "glyphicon glyphicon-pencil", method: :delete, data: { confirm: 'Deseja deletar?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @produtos, previous_label: "Anterior", next_label: "Próxima" %>
 
 <br>
 

@@ -3,8 +3,30 @@ class ClientesController < ApplicationController
 
   # GET /clientes
   # GET /clientes.json
-  def index
-    @clientes = Cliente.all
+
+
+   def index
+    #@clientes = Cliente.all
+    @pnome = params[:pnome]
+
+    filtro = "1=1"
+    if @pnome.present?
+      filtro = filtro + " and nome like '%#{@pnome}%'"
+    end
+    @clientes = Cliente.where(filtro).order("nome").paginate(page: params[:page], per_page: 3);
+  end
+
+   def listar
+    @cliente = Cliente.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ClientesReport.new(@cliente)
+        send_data pdf.render, filename: 'ClientesListagem.pdf', :width =>  pdf.bounds.width,
+        type: 'application/pdf', disposition: :inline, :page_size => "A4",
+        :page_layout => :portrait
+      end
+    end
   end
 
   # GET /clientes/1

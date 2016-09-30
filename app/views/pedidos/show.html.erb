@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @pedido.data %>
+</p>
+
+<p>
+  <strong>Valortotal:</strong>
+  <%= @pedido.valorTotal %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @pedido.cliente.nome%>
+</p>
+
+<%= link_to 'Editar', edit_pedido_path(@pedido) %> |
+<%= link_to 'Voltar', pedidos_path %>

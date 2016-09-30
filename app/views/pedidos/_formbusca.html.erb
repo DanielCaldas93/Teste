@@ -1,0 +1,12 @@
+ <%= form_tag(pedidos_path, method: "get") do %>
+	<%= label_tag(:pdata, "Data do pedido:") %>
+	<%= text_field_tag(:pdata, @pdata,  class: "datepicker") %>
+	<%= submit_tag 'Filtrar' %>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+$('#data').inputmask("9999.9.999.9999");
+});
+</script>

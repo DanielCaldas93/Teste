@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Pedidos</h1>
+
+<br>
+<%= render 'formbusca'%>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Nome do Cliente</th>
+      <th>Valortotal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+        <td><%= pedido.data %></td>
+        <td><%= pedido.cliente.nome %></td>
+        <td><%= pedido.valorTotal %></td>
+        <td><%= link_to 'Mostrar', pedido %></td>
+        <td><%= link_to 'Editar', edit_pedido_path(pedido) %></td>
+        <td><%= link_to 'Deletar', pedido, method: :delete, data: { confirm: 'Cancelar pedido?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+ <%= will_paginate @pedidos, previous_label: "Anterior", next_label: "Próxima" %>
+
+<br>
+<%= link_to 'Novo Pedido', new_pedido_path, class: "btn btn-default" %>
