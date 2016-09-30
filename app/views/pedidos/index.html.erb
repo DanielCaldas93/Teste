@@ -11,7 +11,8 @@
     <tr>
       <th>Data</th>
       <th>Nome do Cliente</th>
-      <th>Valortotal</th>
+      <th>Produto</th>
+      <th>Valor total</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
       <tr>
         <td><%= pedido.data %></td>
         <td><%= pedido.cliente.nome %></td>
+        <td><%= pedido.produto.nome if pedido.produto %></td>
         <td><%= pedido.valorTotal %></td>
         <td><%= link_to 'Mostrar', pedido %></td>
         <td><%= link_to 'Editar', edit_pedido_path(pedido) %></td>

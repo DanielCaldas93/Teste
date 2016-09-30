@@ -15,5 +15,10 @@
   <%= @pedido.cliente.nome%>
 </p>
 
+<p>
+  <strong>Produto:</strong>
+  <%= @pedido.produto.nome%>
+</p>
+
 <%= link_to 'Editar', edit_pedido_path(@pedido) %> |
 <%= link_to 'Voltar', pedidos_path %>

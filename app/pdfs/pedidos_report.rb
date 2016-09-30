@@ -1,8 +1,8 @@
-class ProdutosReport < Prawn::Document
+class PedidosReport < Prawn::Document
   
-  def initialize(produtos)
+  def initialize(pedidos)
     super()
-    @produtos = produtos
+    @pedidos = pedidos
     header
     text_content
     table_content
@@ -20,7 +20,7 @@ class ProdutosReport < Prawn::Document
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
     bounding_box([0, y_position], :width => 540, :height => 50) do
       text "Lambiscaria Serviços de Buffet", size: 15, style: :bold
-      text "Listagem de Produtos", size: 12, style: :bold
+      text "Relatório dos pedidos", size: 12, style: :bold
     end
 
    
@@ -40,9 +40,10 @@ class ProdutosReport < Prawn::Document
   end
 
   def produto_rows
-    [['Nome','Descrição', 'Valor']] +
-      @produtos.map do |produto|
-      [produto.nome,produto.descricao, produto.valorUnit]
+    [['Codigo', 'Cliente', 'Produto', 'Valor']] +
+      @pedidos.map do |pedido|
+      [pedido.id, pedido.produto.nome,pedido.produto.descricao, pedido.valorTotal]
       end
   end
+  
 end

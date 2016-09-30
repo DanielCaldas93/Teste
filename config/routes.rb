@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :usuarios
-  resources :pedidos
+  resources :pedidos do
+    collection do
+    get :listar
+          end
+  end
   resources :clientes do
 		collection do
 		get :listar
@@ -12,10 +16,6 @@ Rails.application.routes.draw do
     get :listar
           end
   end
-
-
-
-
 
   get 'paginas/index'
   get 'paginas/produtos'

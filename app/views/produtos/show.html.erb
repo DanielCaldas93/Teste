@@ -22,6 +22,10 @@
 
 <br/>
 
+<% @produto.pedidos.each do |p| %>
+	<br>
+	<%="pedido: #{p.cliente.nome}"%>
+<%end -%>
 
 
 

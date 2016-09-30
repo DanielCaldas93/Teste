@@ -28,7 +28,11 @@
     m.id]},f.object.cliente_id) %>
   </div>
 
-
+  <div class="field">
+    <%= f.label :produto_id %><br>
+    <%= f.select :produto_id, options_for_select(Produto.all.map{|m|[m.nome,
+    m.id]},f.object.produto_id) %>
+  </div>
  
   <div class="actions">
     <%= f.submit %>

@@ -1,7 +1,7 @@
 class Produto < ActiveRecord::Base
 
 mount_uploader :foto, FotoProdutoUploader
-belongs_to :pedido
+has_many :pedidos
 
 
 def listar

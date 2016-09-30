@@ -16,6 +16,19 @@ class PedidosController < ApplicationController
     @pedidos = Pedido.where(filtro).order('data').paginate(page: params[:page], per_page: 3)
   end
 
+  def listar
+    @pedidos = Pedido.all
+      respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PedidosReport.new(@pedidos)
+        send_data pdf.render, filename: 'PedidosListagem.pdf', :width => pdf.bounds.width,
+        type: 'application/pdf', disposition: :inline, :page_size => "A4",
+        :page_layout => :portrait
+      end
+    end
+  end
+
   # GET /pedidos/1
   # GET /pedidos/1.json
   def show
