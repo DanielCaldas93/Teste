@@ -30,6 +30,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_TREADS") {5} %>
 
 development:
   <<: *default
@@ -42,3 +43,5 @@ test:
 production:
   <<: *default
   database: aplicacao_production
+  username: aplicacao_production
+  password: <%= ENV['APLICACAO_DATABASE_PASSWORD'] %>
